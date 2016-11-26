@@ -7,19 +7,19 @@
 <meta name='keywords' content=''/>
 <meta name='description' content=''/>
 <link rel='icon' href='/yidan/images/favicon.ico' type='image/x-icon' />
-<link rel='stylesheet' href='http://static.yidanxiu.com/yidan/css/fontawesome420/css/font-awesome.min.css' />
-<link rel='stylesheet' href='http://static.yidanxiu.com/yidan/css/fontawesome420/css/font-awesome-ie7.min.css' />
-<link rel='stylesheet' href='http://static.yidanxiu.com/yidan/css/yidan.css'/>
+<link rel='stylesheet' href='/yidan/css/fontawesome420/css/font-awesome.min.css' />
+<link rel='stylesheet' href='/yidan/css/fontawesome420/css/font-awesome-ie7.min.css' />
+<link rel='stylesheet' href='/yidan/css/yidan.css'/>
 
-<script src='http://static.yidanxiu.com/yidan/js/jquery-1.7.1.min.js'></script>
-<script src='http://static.yidanxiu.com/yidan/js/jquery.nicescroll.js'></script>
-<script src='http://static.yidanxiu.com/yidan/js/ajaxupload.js'></script>
-<script src='http://static.yidanxiu.com/yidan/js/yidan.js'></script>
-<script src='http://static.yidanxiu.com/yidan/js/gooddate/WdatePicker.js'></script>
-<script src='http://static.yidanxiu.com/yidan/js/edit/kindeditor.js'></script>
-<script src='http://static.yidanxiu.com/yidan/js/edit/zh_CN.js'></script>
-<script src='http://static.yidanxiu.com/yidan/js/base64/my_core-min.js'></script>
-<script src='http://static.yidanxiu.com/yidan/js/base64/my_enc-base64-min.js'></script>
+<script src='/yidan/js/jquery-1.7.1.min.js'></script>
+<script src='/yidan/js/jquery.nicescroll.js'></script>
+<script src='/yidan/js/ajaxupload.js'></script>
+<script src='/yidan/js/yidan.js'></script>
+<script src='/yidan/js/gooddate/WdatePicker.js'></script>
+<script src='/yidan/js/edit/kindeditor.js'></script>
+<script src='/yidan/js/edit/zh_CN.js'></script>
+<script src='/yidan/js/base64/my_core-min.js'></script>
+<script src='/yidan/js/base64/my_enc-base64-min.js'></script>
 <body class='f-ff1 f-cb'>
     <div class='alert'>
         <div class='alert_div' id='alert_div'>
@@ -53,7 +53,100 @@ height: 100%;
     background-repeat: repeat;
     background-position: top left;
     background-attachment: scroll;
+}   
+.header,.footer,.site-footer{
+    width: 100%;
+    height: 70px;
+    background: #F1F1F1;
+}
+.footer{
+    height: 176px;
+}   
+.site-footer{
+    height: 90px;
+    background: #ffc;
+} 
+.header{
+    position: fixed;
+    z-index: 3;
+    margin-top: -80px;
+    background: rgba(255,255,255,.9);
+    border-bottom: 1px solid #DDD;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);        
 }    
+.container{   
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 500px;
+    /*white-space: pre;*/
+    
+}
+ 
+.header .logo{
+   float:left;
+   padding-top: 10px;
+}    
+.header-center,.notice,.container{
+    width: 1080px;
+}
+.header .header-center{
+    
+    margin-left: auto;
+    margin-right: auto;    
+    line-height:70px;
+}
+.header .header-center .menu{
+    float:right;
+}    
+.header .header-center .menu li{    
+    float:left;    
+    position: relative;
+}  
+.header-center .menu li .menuLia,.dropdown_menu li .children_menu{    
+    color: #444;
+    float:left;
+    width:75px;
+    text-align: center;
+}
+
+.header .header-center .menu li .menuLia .fa{ 
+    margin-right:5px;
+}
+
+.search{
+    line-height: 50px;       
+}
+.menuLi_hover,.menuLia_hover{
+    color:#39C !important;
+}
+
+.search .u-ipt{
+   width: 160px;
+}    
+.dropdown_menu{
+    top: 109%;
+    background:none;
+    border:none;    
+}
+.chmli_hover{
+    background: rgba(247, 247, 247, 0.9) !important;
+    color:#39C !important;
+}
+.dropdown_menu li {
+    height:34px;
+    line-height:34px;
+    float:left;       
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    border-top: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;    
+}
+.dropdown_menu li .children_menu{
+    width:100%;
+    padding-left:10px;
+    text-align: left;
+}
 </style>
 <script>
 $(document).ready(function () {
@@ -65,14 +158,428 @@ $(document).ready(function () {
         init_form();
         init_alert();
         
-     
+        $('.container-left').width(1080-310);
+        $('.articleRight').width(1080-310-230);
+        
+        $('.container-right').width(290);
+        var containerLeftHeight = $('.container-left').height();
+        var containerRightHeight = $('.container-right').height();
+        $('.container').height(containerLeftHeight>containerRightHeight?containerLeftHeight:containerRightHeight);
 });      
 </script>        
+<div class="header">
+    <div class="header-center">
+         <div class="logo"><a class="menuLia hover" href='' ><img src="/yidan/images/frontblog/logo.png" alt="艺单博客"></a></div>
+         <ul class="menu f-fs2">
+              <li class="menuLi hover"><a class="menuLia hover" href='' ><i class='fa fa-home'></i>首 页</a></li>    
+              <li class="menuLi hover"><a class="menuLia hover" href='' ><i class='fa fa-code'></i>编 程</a></li>   
+              <li class="menuLi hover"><a class="menuLia hover" href='' ><i class='fa fa-film'></i>影 视 </a>  
+                   <ul class="dropdown_menu" style="left: 0px; display: none;">
+                       <li class="chmli hover"><a class="children_menu" href='' >php</a></li> 
+                       <li class="chmli hover"><a class="children_menu " href='' >js</a></li>   
+                       <li class="chmli hover"><a class="children_menu" href='' >linux</a></li>   
+                    </ul>                                               
+              </li>   
+              <li class="menuLi hover"><a class="menuLia hover" href='' ><i class='fa fa-send-o'></i>文 章</a></li>   
+              <li class="menuLi hover"><a class="menuLia hover" href='' ><i class='fa fa-photo'></i>图 片</a></li>   
+              <li class="menuLi hover"><a class="menuLia hover" href='' ><i class='fa fa-smile-o'></i>哈 哈</a></li>   
+              <li class="menuLi hover"><a class="menuLia hover" href='' ><i class='fa fa-edit'></i>留 言 版</a></li>                           
+              <li class="m-form search"><input type="text" name="search" value="" class="u-ipt hover"> </li>             
+              <li class="searchBtn"><a class="menuLia" href='' style="width: 20px;" ><i class='fa fa-search'></i></a></li>                            
+         </ul>
+    </div>
+   
+</div>
+
+<style>
+    .notice{
+        height:25px;
+        line-height: 25px;      
+        border: 1px solid #E0E0E0;
+        background: #ffffff;        
+        margin-left: auto;
+        margin-right: auto;   
+        margin-top: 80px;
+        overflow: hidden;
+        margin-bottom:15px;
+    }
+    .notice  li{
+        height: 100%;
+        width: 100%;
+        
+    }
+    .notice  li a:hover{
+        color:#39C; 
+    }   
+    .notice  li a .fa{
+        margin-left:5px;
+        margin-right:5px;
+        color:#39C; 
+    }
+    .container-left{
+        width: 860px;        
+        height:auto;         
+        float: left;
+    }
+    .container-right{
+        width: 204px;        
+        height:auto;  
+        float: right;
+        margin-right:10px;
+    }    
+    .slideshow{
+        width:100%;
+        height:350px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom:15px;
+    }
+    .slideshow img,.slideshow li a{
+        width:100%;
+        height:350px;  
+        position: relative;
+    }
+  
+    .slideshow .prev ,.slideshow .next{         
+        position: absolute;
+        top:150px;
+        height: 60px;
+        width: 30px;   
+        text-align: center;
+        font-size: 50px;      
+        color: #FFF !important;
+        cursor:pointer;        
+        line-height:60px;
+        background:#000;
+        opacity: 0.6;
+        z-index:2;
+    }
+    .slideshow .prev_hover,.slideshow .next_hover{                 
+        opacity: 0.3;
+    }     
+    .slideshow .prev{ 
+        left:10px;
+    }        
+    .slideshow .next{ 
+        right:10px;
+    }    
+    .slideshow .title{
+        position: absolute;         
+        height: 30px;      
+        text-align: left;
+        background: #39C;
+        opacity: 0.8;      
+        z-index:2;
+        color:#fff;
+        padding:0px 10px 0px 10px;
+        line-height:30px;
+    }  
+    .slideshow .bar{
+        position: absolute;     
+        height: 30px;     
+        width:100%;
+        text-align: center;      
+        bottom:10px;
+        z-index:2;
+    }
+    .slideshow .bar .fa{  
+        color:#fff;
+        font-size:14px;    
+        margin-left: 10px;
+        cursor: pointer;
+    }   
+    .slideshow .bar .fa-circle{
+        color:#39C;
+    }
+    .articleList{
+        width:100%;
+        height:auto;
+    }
+    
+    
+    .articleList .li{
+        width:100%;
+        height:180px;          
+        position: relative;
+        background: #FFF;        
+        border: 1px solid #DDD;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+        border-radius: 2px;        
+        float:left;
+        padding:20px 0px 20px 0px;
+        margin-bottom:20px;        
+    }
+    
+    .articleList .li_hover{
+        border: 1px dashed #39C;
+    }
+    
+    .articleList li .imgdiv{      
+        float: left;
+        width: 180px;
+        height: 180px;      
+        clear: both;
+        margin-left:20px;
+        overflow: hidden;             
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat no-repeat;            
+    }
+    .articleList .articleRight{
+        float: right;
+        width: 630px;
+        height: 100%;       
+        margin-right: 15px;
+        position: relative;
+    }             
+   
+    .articleRight .title,.articleRight .bar,.articleRight .contentDraft{
+        width:100%;     
+        float:left;        
+    }
+    
+    .articleList .articleRight .title{
+        font-size: 16px;
+        clear:both;
+        color: #555;
+        font-weight: bold;
+        margin-top: -5px;
+    }
+    .articleList .articleRight .title a:hover{
+        color: #39C;
+    }
+    .articleList .articleRight .contentDraft{
+        color: #777;
+        font-size: 14px;
+        line-height:25px;
+        text-indent:2em;
+    }    
+    .articleList .articleRight .bar{
+        width: 100%;
+        height: 30px;         
+        position: absolute;
+        right: 0px;
+        bottom: -8px;
+        line-height: 30px;
+    }  
+    .articleList .articleRight .bar .read-more{
+        background: #39C;       
+        line-height: 30px;       
+        display: block;
+        border-radius: 2px 0 0 2px;             
+        width:70px;
+        color: #FFF; 
+        padding:0px 10px 0px 10px;
+        position: absolute;
+        right:-15px;
+    }      
+    .articleList .articleRight .bar .read-more .fa{
+        margin-right:5px;
+    }
+    .articleList .articleRight .bar .read-more:hover{
+        background: #595959;
+    }     
+    .articleList .articleRight .bar span{
+        float:left;
+    }    
+    .articleList .articleRight .entry-meta .fa{
+        color: #777;         
+        padding-right: 5px;
+    } 
+    .articleList .articleRight .tag{
+        margin-left:20px;
+    }    
+    .articleList .articleRight .tag .fa{
+        padding-right: 5px;
+    }     
+    .articleList .articleRight .tag a{
+        color: #595959;
+        float:right;
+        padding-left: 5px;
+        padding-right: 5px;        
+    } 
+    .articleList .articleRight .tag a:hover,.entry-meta a:hover{
+        color: #39C;
+    }    
+    
+</style>
+
+<ul class="notice" >
+    <li><a  href='' ><i class='fa fa-volume-up'></i>如果你觉得闲鱼分享的玩意对你有用的话，就留个言鼓励下吧! 站务合作请QQ留言或联系邮箱：macrr@qq.com</a></li> 
+    <li><a  href='' ><i class='fa fa-volume-up'></i>就留个言鼓励下吧! 站务合作请QQ留言或联系邮箱：macrr@qq.com</a></li> 
+ </ul>       
 
 
+<div class="container"> 
+    <div class="container-left"> 
+        <ul class="slideshow" >
+            <span class="prev hover"><i class="fa fa-angle-left"></i></span>
+            <span class="next hover"><i class="fa fa-angle-right"></i></span>
+            <span class="bar"><i class="fa fa-circle-o"></i><i class="fa fa-circle-o"></i><i class="fa fa-circle"></i></span>
+            <li><a href='' ><span class="title">给主题添加知更鸟的点赞、分享、打赏的样式</span><img src="/yidan/images/frontblog/demo3.jpg" /></a></li> 
+            <li><a href='' ><span class="title">给主题添加知更鸟的点赞、分享、打赏的样式</span><img src="/yidan/images/frontblog/demo3.jpg" /></a></li>              
+        </ul>          
+        
+        <ul class="articleList" >
+            <li class='li hover'>
+                    <img class="imgdiv" src="/yidan/images/frontblog/demo3.jpg" /> 
+                    <div class="articleRight">
+                        <span class='title'>
+                            <a href="http://www.macrr.com/mouse-heart.html" rel="bookmark">WordPress特效：给网站添加鼠标点击爱心弹出效果</a>
+                        </span>
+                        <span class='contentDraft'>
+                             有些网站在鼠标点击的时候有添加+1这种红色数字慢慢变大变淡的淡出和上升效果，觉得蛮有趣的，但是不管是随机数字还是累积数字，用久了闲鱼觉得还是蛮单调的，而这里闲鱼要介... 
+                        </span>
+                        <span class='bar'>
+                            <span class='entry-meta'>
+                                <i class="fa fa-calendar"></i>2016-05-45
+                                <i class="fa fa-eye"></i>100&nbsp;
+                                <i class="fa fa-comment-o"></i><a class='comment' href="http://www.macrr.com/picture-change.html">10</a>
+                            </span>
+                            <span class='tag'>
+                                <a><i class="fa fa-tag"></i>aa</a>
+                                <a><i class="fa fa-tag"></i>bb</a>
+                                <a><i class="fa fa-tag"></i>cc</a>
+                            </span>    
+                           
+                            <a class='read-more' href="http://www.macrr.com/picture-change.html" rel="bookmark"><i class="fa fa-send-o"></i>阅读全文</a> 
+                        </span>
+                    </div>
+            </li> 
+            <li class='li hover'>
+                    <div class="imgdiv" style="background-image: url(http://www.17sucai.com/preview/1/2014-12-29/jqthumb/images/4.jpg);"><img src="/yidan/images/frontblog/demo3.jpg" /></div>
+                    <div class="articleRight">
+                        <span class='title'>
+                            <a href="http://www.macrr.com/mouse-heart.html" rel="bookmark">WordPress特效：给网站添加鼠标点击爱心弹出效果</a>
+                        </span>
+                        <span class='contentDraft'>
+                             有些网站在鼠标点击的时候有添加+1这种红色数字慢慢变大变淡的淡出和上升效果，觉得蛮有趣的，但是不管是随机数字还是累积数字，用久了闲鱼觉得还是蛮单调的，而这里闲鱼要介... 
+                        </span>
+                        <span class='bar'>
+                            <a  class='read-more' href="http://www.macrr.com/picture-change.html" rel="bookmark"><i class="fa fa-send-o"></i>阅读全文</a> 
+                        </span>
+                    </div>
+            </li> 
+            <li class='li hover'>
+                    <div class="imgdiv" style="background-image: url(http://www.17sucai.com/preview/1/2014-12-29/jqthumb/images/2.jpg);"><img src="/yidan/images/frontblog/demo3.jpg" /></div>
+                    <div class="articleRight">
+                        <span class='title'>
+                            <a href="http://www.macrr.com/mouse-heart.html" rel="bookmark">WordPress特效：给网站添加鼠标点击爱心弹出效果</a>
+                        </span>
+                        <span class='contentDraft'>
+                             有些网站在鼠标点击的时候有添加+1这种红色数字慢慢变大变淡的淡出和上升效果，觉得蛮有趣的，但是不管是随机数字还是累积数字，用久了闲鱼觉得还是蛮单调的，而这里闲鱼要介... 
+                        </span>
+                        <span class='bar'>
+                            <a  class='read-more' href="http://www.macrr.com/picture-change.html" rel="bookmark"><i class="fa fa-send-o"></i>阅读全文</a> 
+                        </span>
+                    </div>
+            </li>             
+         </ul>    
+     </div>   
+    <div class="container-right"> 
+        <style>
+            .imghrefList{
+                width: 100%;
+                height: auto;
+                background: #fff;
+                border: 1px solid #ddd;
+                border-radius: 2px;
+                box-shadow: 0 1px 1px rgba(0,0,0,.04);  
+                padding:5px;
+            }
+            .imghrefList li{
+                
+            }
+            .imghrefList .imgdiv{
+                width: 100%;
+                height: 110px;                                
+            }
+        </style>
+         <ul class="imghrefList" >
+            
+ <li><a href='' > 
+        <img class="imgdiv" src="http://www.17sucai.com/preview/1/2014-12-29/jqthumb/images/1.jpg" />
+</a></li> 
+ <li><a href='' > 
+        <img class="imgdiv" src="http://www.17sucai.com/preview/1/2014-12-29/jqthumb/images/2.jpg" />
+</a></li> 
+ <li><a href='' > 
+        <img class="imgdiv" src="http://www.17sucai.com/preview/1/2014-12-29/jqthumb/images/3.jpg" />
+</a></li> 
+                     
+        </ul>  
+        
+        <style>
+            .recommend {
+                width: 100%;
+                height: auto;
+                background: #fff;
+                border: 1px solid #ddd;
+                border-radius: 2px;
+                box-shadow: 0 1px 1px rgba(0,0,0,.04);                 
+                margin-top:10px;
+            }
+            .recommend  li{
+                
+            }
+            .recommend  .imgdiv{
+                width: 100px;
+                height: 75px;                          
+            }
+            .recommend .recommendRight {
+                
+            }
+.recommend  .title i {
+float: left;
+width: 40px;
+height: 40px;
+font-size: 18px;
+color: #3399cc;
+line-height: 40px;
+text-align: center;
+margin: 0 15px 0 0;
+padding: 1px 0;
+border-right: 1px solid #DDD;
+border-radius: 2px 0 0 0;
+}            
+.recommend h3 {
+background: #F8F8F8;
+height: 40px;
+line-height: 40px;
+border-bottom: 1px solid #DDD;
+}
+
+        </style>
+         <ul class="recommend" >
+            
+             <li><h3 class="title"><i class="fa fa-bars"></i>闲鱼小推荐</h3> </li>
+             
+ <li><a href='' > 
+        <img class="imgdiv" src="http://www.17sucai.com/preview/1/2014-12-29/jqthumb/images/2.jpg" />
+        <div class="recommendRight">
+                        <span class="title">
+                            <a href="http://www.macrr.com/mouse-heart.html" rel="bookmark">WordPress特效：给网站添加鼠标点击爱心弹出效果</a>
+                        </span>
+               
+        <span class="bar">
+            <span class="entry-meta">
+                <i class="fa fa-calendar"></i>2016-05-45
+                <i class="fa fa-eye"></i>100&nbsp;
+                <i class="fa fa-comment-o"></i><a class="comment" href="http://www.macrr.com/picture-change.html">10</a>
+            </span>                                                    
+         </span>
+        </div>
+</a>
+ </li> 
+ 
+                     
+        </ul>  
+        
+     </div>     
+</div>
 
 
-
-
+<div class="footer"></div>
+<div class="site-footer"></div>
 </body>
 </html>
